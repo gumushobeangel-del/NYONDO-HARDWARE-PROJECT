@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo22.png" alt="Logo" class="logo" />
+      </div>
+      <h1>STOCK MANAGEMENT FORM</h1>
+      <form>
+        <h2>ITEM DETAILS</h2>
+        <label for="item name">Item Name</label>
+        <input type="text" id="item" placeholder="item name" required />
+
+        <label for="item code">Item Code</label>
+        <input type="text" id="code" placeholder="item code" required />
+
+        <label for="price">Price</label>
+        <input type="text" id="price" placeholder="price" required />
+
+        <label for="category">Category</label>
+        <input type="text" id="category" placeholder="category" required />
+
+        <h2>STOCK INFORMATION</h2>
+        <label for="quantity">Quantity in Stock</label>
+        <input
+          type="text"
+          id="quantity"
+          placeholder="quantity in stock"
+          required
+        />
+
+        <label for="minstock">Minimum stock level</label>
+        <input
+          type="text"
+          id="minstock"
+          placeholder="minimum stock level"
+          required
+        />
+
+        <label for="unit">Unit of measurement</label>
+        <input
+          type="text"
+          id="unit"
+          placeholder="unit of measurement"
+          required
+        />
+
+        <h2>PRICING DETAILS</h2>
+        <label for="cost">Cost Price</label>
+        <input type="text" id="cost" placeholder="cost price" required />
+
+        <label for="selling">Selling price</label>
+        <input type="text" id="selling" placeholder="selling price" required />
+
+        <label for="value">Total Value</label>
+        <input type="text" id="value" placeholder="total value" required />
+
+        <h2>SUPPLIERS INFORMATION</h2>
+        <label for="supplier">Supplier Name</label>
+        <input type="text" id="supplier" placeholder="supplier name" required />
+
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" placeholder="contact" required />
+
+        <label for="supply">Supply Date</label>
+        <input type="date" id="date" placeholder="supply date" required />
+
+        <h2>STOCK MOVEMENT</h2>
+        <label for="stock">Stock in</label>
+        <input type="text" id="stock" placeholder="stock in" required />
+
+        <label for="stock">Stock out</label>
+        <input type="text" id="stock" placeholder="stock out" required />
+
+        <label for="balance">Balance Remaining</label>
+        <input
+          type="text"
+          id="balanced"
+          placeholder="balance remaining"
+          required
+        />
+
+        <h2>ADDITIONAL NOTES</h2>
+        <label for="comments">Comments</label>
+        <input type="text" id="comments" placeholder="comments" required />
+
+        <label for="recorded">Recorded by</label>
+        <input type="text" id="recorded" placeholder="recorded by" required />
+
+        <button>Add Stock</button>
+      </form>
+    </div>
+  </body>
+</html>

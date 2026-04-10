@@ -1,0 +1,72 @@
+body {
+  background-color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+label {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+input {
+  padding: 13px;
+  width: 85%;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.container {
+  background: rgb(118, 177, 198);
+  padding: 30px;
+  width: 550px;
+  /* the form will not be hanging */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 17px; /*this can remove the sharp edges on a form and make it to be curved*/
+}
+
+.logo {
+  width: 280px; /* adjust size */
+  display: block;
+  margin: 0 auto 10px; /* center it */
+}
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px; /* pushes h2 down from the element above */
+  margin-bottom: 30px; /* adds spacing below h2 for clarity */
+  font-size: 30px;
+  color: #121111;
+}
+
+/* styling my button */
+button {
+  margin-top: 19px;
+  padding: 9px;
+  width: 60%;
+  border-radius: 6px;
+  background: #363636;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* #I am making my submit button to hover around */
+button:hover {
+  background: #2468b1;
+}
