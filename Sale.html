@@ -86,6 +86,42 @@
       tr:hover {
         background: #ddeaf1;
       }
+      /* MOBILE RESPONSIVENESS */
+      /* this is the css that makes my form to be seen clearly on mobile phones */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* stack form and table */
+    padding: 10px;
+  }
+
+  .form-box,
+  .table-box {
+    width: 100%; /* full width on small screens */
+  }
+
+  .form-box input,
+  .form-box button {
+    width: 100%; /* make inputs fill screen */
+  }
+
+  table {
+    display: block;
+    overflow-x: auto; /* allow horizontal scroll if needed */
+    white-space: nowrap;
+  }
+
+  table th,
+  table td {
+    font-size: 14px; /* smaller text for phones */
+    padding: 8px;
+  }
+
+  .form-box h2,
+  .table-box h2 {
+    font-size: 18px; /* adjust headings */
+    text-align: center;
+  }
+}
     </style>
   </head>
 

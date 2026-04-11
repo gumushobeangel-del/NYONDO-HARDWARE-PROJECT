@@ -113,6 +113,7 @@ button:hover {
 }
 
 /* 📱 MOBILE RESPONSIVE DESIGN */
+/* here am making the css that can make people see clearly on mobile phone */
 @media (max-width: 600px) {
   body {
     padding: 10px;
@@ -156,3 +157,14 @@ button:hover {
     font-size: 18px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
