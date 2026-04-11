@@ -1,4 +1,5 @@
 body {
+  font-family: "Times New Roman", Times, serif;
   background-color: white;
   margin: 0;
   display: flex;
@@ -35,7 +36,8 @@ input {
 .logo {
   width: 280px; /* adjust size */
   display: block;
-  margin: 0 auto 10px; /* center it */
+  margin: 0 auto 20px; /* center it */
+  margin-top: 20px;
 }
 h1 {
   text-align: center;
@@ -50,6 +52,42 @@ h2 {
   margin-bottom: 30px; /* adds spacing below h2 for clarity */
   font-size: 30px;
   color: #121111;
+}
+
+.sign {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sign select {
+  padding: 13px;
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 16px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styles the checkbox input itself */
+.checkbox input[type="checkbox"] {
+  width: 20px; /* Sets the width of the checkbox */
+  height: 19px; /* Sets the height of the checkbox */
+  cursor: pointer; /* Changes cursor to pointer when hovering */
+  
+}
+
+/* Styles the container that holds the checkbox and its label/text */
+.checkbox {
+  display: flex; /* Places checkbox and text in a row */
+  align-items: center; /* Vertically aligns checkbox and text */
+  gap: 6px; /* Adds space between checkbox and text */
+  font-size: 25px; /* Increases size of the label/text */
 }
 
 /* styling my button */
