@@ -150,6 +150,69 @@
         box-shadow: none; /*removes shadow*/
       }
 
+      /* ================= MOBILE RESPONSIVENESS ONLY ================= */
+      @media (max-width: 768px) {
+        /* Stack sidebar and content */
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        /* Smaller header */
+        .header {
+          font-size: 24px;
+          padding: 15px;
+        }
+
+        /* Sidebar adjustment */
+        .sidebar {
+          height: auto;
+          text-align: center;
+        }
+
+        /* Sidebar links */
+        .sidebar a {
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        /* Cards stack */
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        /* Reduce text size */
+        .card h3 {
+          font-size: 18px;
+        }
+
+        .card p {
+          font-size: 16px;
+        }
+
+        /* Make tables scrollable */
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+          font-size: 14px;
+        }
+
+        th,
+        td {
+          padding: 10px;
+        }
+
+        /* Reduce spacing */
+        .main {
+          padding: 10px;
+        }
+
+        /* Smaller logo */
+        .logo {
+          max-width: 120px;
+        }
+      }
+
       footer {
         color: rgb(20, 10, 10); /* text color */
         text-align: center;

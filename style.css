@@ -5,16 +5,19 @@ body {
   display: flex;
   justify-content: center;
 }
+
 form {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
 }
+
 label {
   font-size: 18px;
   margin-top: 15px;
   font-weight: bold;
 }
+
 input {
   padding: 13px;
   width: 85%;
@@ -39,6 +42,7 @@ input {
   margin: 0 auto 20px; /* center it */
   margin-top: 20px;
 }
+
 h1 {
   text-align: center;
   font-size: 30px;
@@ -79,7 +83,6 @@ label {
   width: 20px; /* Sets the width of the checkbox */
   height: 19px; /* Sets the height of the checkbox */
   cursor: pointer; /* Changes cursor to pointer when hovering */
-  
 }
 
 /* Styles the container that holds the checkbox and its label/text */
@@ -109,4 +112,47 @@ button:hover {
   background: #2468b1;
 }
 
+/* 📱 MOBILE RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    display: block;
+  }
 
+  .container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .sign select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  h1,
+  h2 {
+    font-size: 22px;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .checkbox {
+    font-size: 18px;
+  }
+}
