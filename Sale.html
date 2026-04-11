@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Form</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background: rgb(118, 177, 198);
+        /* the form will not be hanging */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 17px; /*this can remove the sharp edges on a form and make it to be curved*/
+      }
+
+      /* FORM SECTION */
+      .form-box {
+        width: 30%;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .form-box h2 {
+        margin-bottom: 15px;
+      }
+
+      .form-box input {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      .form-box button {
+        width: 90%;
+        padding: 10px;
+        background: #363636;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .form-box button:hover {
+        background: #2468b1;
+      }
+
+      /* Table section */
+      .table-box {
+        width: 70%;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table th,
+      table td {
+        padding: 12px;
+        border-bottom: 1px solid #f5f0f0;
+        text-align: left;
+      }
+
+      table th {
+        background: #0d2238;
+        color: white;
+      }
+
+      tr:hover {
+        background: #ddeaf1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h2>SALES REGISTRATION</h2>
+
+        <form>
+          <label>Product Name</label>
+          <input type="text" required />
+
+          <label>Quantity</label>
+          <input type="number" required />
+
+          <label>Date</label>
+          <input type="date" required />
+
+          <label>Unit Price</label>
+          <input type="number" required />
+
+          <label>Customer Name</label>
+          <input type="text" required />
+
+          <label>Customer Contact</label>
+          <input type="tel" required />
+
+          <label>Item Type</label>
+          <input type="text" required />
+
+          <label>Item Brand</label>
+          <input type="text" required />
+
+          <button type="submit">Add Sale</button>
+        </form>
+      </div>
+
+      <div class="table-box">
+        <h2>Sales Inventory</h2>
+
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price (UGX)</th>
+            <th>Total(UGX)</th>
+          </tr>
+
+          <tr>
+            <td>Cement</td>
+            <td>10</td>
+            <td>35,000</td>
+            <td>350,000</td>
+          </tr>
+
+          <tr>
+            <td>Nails</td>
+            <td>5</td>
+            <td>5,000</td>
+            <td>25,000</td>
+          </tr>
+          <tr>
+            <td>Pipes</td>
+            <td>30</td>
+            <td>6,000</td>
+            <td>180,000</td>
+          </tr>
+          <tr>
+            <td>Paint</td>
+            <td>50</td>
+            <td>20,000</td>
+            <td>1,000,000</td>
+          </tr>
+          <tr>
+            <td>Timber</td>
+            <td>100</td>
+            <td>5,000</td>
+            <td>500,000</td>
+          </tr>
+          <tr>
+            <td>Glass</td>
+            <td>300</td>
+            <td>10,000</td>
+            <td>3,000,000</td>
+          </tr>
+          <tr>
+            <td>Wiremesh</td>
+            <td>37</td>
+            <td>30,000</td>
+            <td>1,110,000</td>
+          </tr>
+          <tr>
+            <td>Ironsheets</td>
+            <td>300</td>
+            <td>7,000</td>
+            <td>2,100,000</td>
+          </tr>
+          <tr>
+            <td>Wood</td>
+            <td>100</td>
+            <td>3,000</td>
+            <td>300,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

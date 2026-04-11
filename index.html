@@ -4,160 +4,176 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nyondo Hardware Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
       body {
-        margin: 0; /*removes outside spacing */
+        margin: 0;
         font-family: "Times New Roman", Times, serif;
         background: rgb(208, 202, 202);
       }
 
+      /* top title bar */
       .header {
         background: rgb(75, 112, 125);
-        color: white;
-        padding: 20px;
-        font-size: 40px;
+        color: white; /* text color inside header */
+        padding: 20px; /* space inside header (top, right, bottom, left) */
+        font-size: 40px; /* makes text big */
         text-align: center;
       }
-      /* #This helps my layout not to be disorganized */
+
+      /* sidebar and main content*/
       .container {
-        display: grid; /* Enables grid layout */
+        display: grid; /* enables grid layout system */
         grid-template-columns: 240px 1fr;
+        /* first column = 230px (sidebar), second = remaining space (main content) */
       }
-      /* This sidebar styles the whole sidebar container */
+
+      /* Sidebar*/
       .sidebar {
         background: rgb(75, 112, 125);
-        color: white;
-        height: 110%;
-        padding: 20px;
-        font-size: 15px;
-        /* border-radius: 10px; */
+        color: white; /* text color inside sidebar */
+        height: 110%; /* makes sidebar taller than screen */
+        font-size: 18px; /*makes the text size big */
       }
-      /* This sidebar a styles the links inside the sidebar */
+
+      /* Side bar links */
       .sidebar a {
-        display: block;
-        padding: 12px;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        /* border-radius: 9px; */
+        display: block; /* makes links stack vertically */
+        padding: 17px; /* space inside each link */
+        color: white; /* link text color */
+        text-decoration: none; /* removes underline */
+        font-size: 18px; /* makes text to be big for someone to read it clearly */
       }
 
+      /* Sidebar hover effect */
       .sidebar a:hover {
-        background: #1e293b;
-        padding: 10px;
+        background: #1d293c; /* changes background when hovering */
+        padding: 10px; /*gives click feel when hovering*/
       }
 
+      /* Main content */
       .main {
-        padding: 20px;
+        padding: 20px; /* makes the main content not be fixed(to have space) */
       }
 
       .cards {
-        /* Each item sits neatly in its own column when they are not packed */
-        display: grid;
-        /* #it displays cards to be in columns */
+        display: grid; /* makes the cards to be horinzontally aligned */
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
+        /* auto creates columns depending on screen size */
+        gap: 20px; /* space between cards */
       }
 
+      /* Card box */
       .card {
-        background: white;
-        padding: 18px;
-        border-radius: 13px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
-      }
-      /* am making my cards to hover around */
-      .card:hover {
-        background: lightblue;
-        cursor: pointer;
-        /* The transform property is used to move, rotate, scale, or changing an element */
-        transform: translateY(-6px);
-      }
-      .card h3 {
-        margin: 0;
-        color: #383737;
-        font-size: 20px;
+        background: white; /* card background color */
+        padding: 18px; /* space inside card */
+        border-radius: 13px; /* makes the corners to be curved */
       }
 
+      /* Card hover effect */
+      .card:hover {
+        background: lightblue; /* changes color on hover when tapping */
+        cursor: pointer; /* shows hand cursor */
+        transform: translateY(-6px);
+        /* moves card slightly up*/
+      }
+
+      /* Card title */
+      .card h3 {
+        margin: 0; /* removes the space that the browser automatically gives elements*/
+        color: #272020; /*gives the heading a color */
+        font-size: 23px;
+      }
+
+      /* Card paragraph */
       .card p {
-        font-size: 19px;
-        font-weight: bold;
-        margin-top: 10px;
+        font-size: 19px; /* makes number readable */
+        font-weight: bold; /* makes text thick */
+        margin-top: 16px; /* space above text */
       }
 
       table {
-        width: 100%;
-        border-collapse: collapse;
+        width: 100%; /* full width table */
+        border-collapse: collapse; /* removes gaps between borders */
         background: white;
-        border-radius: 14px;
+        border-radius: 14px; /*makes the corners curved */
+        font-size: 18px;
+        margin-top: 20px; /* space above table */
+      }
+
+      /* Table heading */
+      th {
+        background: #1f4e5f;
+        color: white; /* changes the color of the text */
+        text-align: left; /* aligns text left making them organised */
+        padding: 14px; /* space inside cells */
         font-size: 18px;
       }
 
-      th,
+      /* Table cells */
       td {
-        padding: 15px;
-        text-align: left;
+        padding: 14px; /* space inside each cell */
+        border-bottom: 1px solid rgb(240, 228, 228); /* light line between rows */
       }
 
-      th {
-        background: rgb(75, 112, 125);
-        color: white;
-      }
-
-      th {
-        background: #1f4e5f;
-        color: white;
-        text-align: left;
-        padding: 14px;
-        font-size: 14px;
-      }
-
-      td {
-        padding: 14px;
-        border-bottom: 1px solid #eee;
-      }
-
+      /* Table row hover */
       tr:hover {
-        background: #ddeaf1;
-      }
-      /* am giving my table heading status colors */
-      .low {
-        color: lightblue;
-        font-weight: bold;
+        background: #ddeaf1; /* highlight row on hover */
       }
 
-      .stock {
-        color: rgb(100, 245, 100);
-        font-weight: bold;
+      /* Low stock text */
+      .low {
+        color: rgb(111, 190, 217); /* color for warning */
+        font-weight: bold; /* makes text bold */
       }
+
+      /* In stock text */
+      .stock {
+        color: rgb(72, 245, 72); /* green color for success */
+        font-weight: bold; /* bold text */
+      }
+
       .logo {
-        width: 200px; /* adjust size */
-        display: block;
-        margin: 0 auto 10px; /* center it */
-        background-color: lightseagreen;
+        width: 100%; /* fills container width */
+        max-width: 200px; /* prevents it from becoming too big */
+        display: block; /* makes it behave like a block element */
+        margin: 0 auto; /* centers logo horizontally */
+      }
+
+      /* /* Logo box insidet the sidebar */
+      .sidebar .card.logo {
+        text-align: center; /* centers content */
+        background: transparent; /* removes background box */
+        box-shadow: none; /*removes shadow*/
       }
 
       footer {
-        color: black;
+        color: rgb(20, 10, 10); /* text color */
         text-align: center;
-        padding: 15px;
-        margin-top: 8px;
-        margin-bottom: 20px;
+        padding: 17px; /* space inside footer */
+        margin-top: 8px; /* space above footer */
+        margin-bottom: 20px; /* space below footer */
         font-size: 17px;
       }
     </style>
   </head>
+
   <body>
     <div class="header">Nyondo General Hardware Dashboard</div>
 
     <div class="container">
       <div class="sidebar">
-        <div class="card.logo">
+        <div class="card logo">
           <img src="images/logo22.png" alt="Logo" class="logo" />
         </div>
-        <a href="reg.html">➕ Registration Form</a>
-        <a href="sales.html">💰 Sales</a>
+
+        <a href="reg.html">➕ Log in</a>
+        <a href="Sale.html">💰 Add Sale</a>
         <a href="Deposit.html">🏦 Customer Deposit</a>
-        <a href="stock.html">📦Stock Management</a>
+        <a href="stock.html">📦 Add Stock</a>
       </div>
 
       <div class="main">
@@ -210,19 +226,109 @@
             <td>Nails</td>
             <td>210</td>
             <td class="stock">In Stock</td>
-            <td>UGX 8,000</td>
+            <td>UGX 100,000</td>
           </tr>
 
           <tr>
             <td>Ironsheets</td>
             <td>50</td>
             <td class="low">Low Stock</td>
-            <td>UGX 90,000</td>
+            <td>UGX 50,000</td>
           </tr>
         </table>
+
+        <h2>Sales Overview</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Today's Sales</h3>
+            <p>UGX 1,000,000</p>
+          </div>
+
+          <div class="card">
+            <h3>This Week</h3>
+            <p>UGX 7,200,000</p>
+          </div>
+
+          <div class="card">
+            <h3>This Month</h3>
+            <p>UGX 15,500,000</p>
+          </div>
+
+          <div class="card">
+            <h3>Top Product</h3>
+            <p>Cement</p>
+          </div>
+        </div>
+
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Amount</th>
+          </tr>
+
+          <tr>
+            <td>3-04-2026</td>
+            <td>Mbaleke Alphat</td>
+            <td>Cement</td>
+            <td>UGX 750,000</td>
+          </tr>
+
+          <tr>
+            <td>5-04-2026</td>
+            <td>Natukunda Alvin</td>
+            <td>Paint</td>
+            <td>UGX 500,000</td>
+          </tr>
+
+          <tr>
+            <td>10-04-2026</td>
+            <td>Nabukera Jamirah</td>
+            <td>Nails</td>
+            <td>UGX 200,000</td>
+          </tr>
+          <tr>
+            <td>12-04-2026</td>
+            <td>Nampiima Shamim</td>
+            <td>Pipes</td>
+            <td>UGX 250,000</td>
+          </tr>
+          <tr>
+            <td>14-04-2026</td>
+            <td>Kabuye Eric</td>
+            <td>Timber</td>
+            <td>UGX 500,000</td>
+          </tr>
+        </table>
+
+        <h3>Sales Trend</h3>
+        <canvas id="salesChart"></canvas>
       </div>
     </div>
-    
+
     <footer>2026 @Nyondo General Hardware Ltd All rights Copy right</footer>
+
+    <script>
+      const ctx = document.getElementById("salesChart");
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+          datasets: [
+            {
+              label: "Sales (UGX)",
+              data: [1000000, 800000, 600000, 900000, 1000000, 3000000],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+    </script>
   </body>
 </html>
