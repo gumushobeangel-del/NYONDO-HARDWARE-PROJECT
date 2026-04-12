@@ -112,6 +112,15 @@ button:hover {
   background: #2468b1;
 }
 
+footer {
+  color: rgb(20, 10, 10);
+  text-align: center;
+  padding: 17px; /* space inside footer */
+  margin-top: 8px; /* space above footer */
+  margin-bottom: 20px; /* space below footer */
+  font-size: 17px;
+}
+
 /* 📱 MOBILE RESPONSIVE DESIGN */
 /* here am making the css that can make people see clearly on mobile phone */
 @media (max-width: 600px) {
@@ -158,13 +167,11 @@ button:hover {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
+footer {
+  color: rgb(20, 10, 10);
+  text-align: center;
+  padding: 17px; /* space inside footer */
+  margin-top: 8px; /* space above footer */
+  margin-bottom: 20px; /* space below footer */
+  font-size: 17px;
+}
