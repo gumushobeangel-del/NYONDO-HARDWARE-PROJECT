@@ -12,14 +12,17 @@
         background: #f4f6f9;
       }
 
+      h2 {
+        text-align: center;
+      }
       .container {
-        display: flex;
+        display: flex; /*makes the form and the table to be side by side */
         gap: 20px;
         padding: 20px;
         background: rgb(118, 177, 198);
         /* the form will not be hanging */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 17px; /*this can remove the sharp edges on a form and make it to be curved*/
+
+        border-radius: 15px; /*this can remove the sharp edges on a form and make it to be curved*/
       }
 
       /* Form section */
@@ -31,7 +34,7 @@
       }
 
       .form-box h2 {
-        margin-bottom: 15px;
+        font-size: 30px;
       }
 
       .form-box input {
@@ -44,10 +47,9 @@
 
       .form-box button {
         width: 90%;
-        padding: 10px;
+        padding: 10px; /*makes the button to be wide(not small) */
         background: #363636;
         color: white;
-        border: none;
         border-radius: 8px;
         cursor: pointer;
         font-size: 15px;

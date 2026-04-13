@@ -20,7 +20,7 @@ label {
 
 input {
   padding: 13px;
-  width: 85%;
+  width: 80%;
   border-radius: 5px;
   border: 1px solid black;
   margin-top: 5px;
@@ -30,7 +30,7 @@ input {
 .container {
   background: rgb(118, 177, 198);
   padding: 30px;
-  width: 550px;
+  width: 470px;
   /* the form will not be hanging */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 17px; /*this can remove the sharp edges on a form and make it to be curved*/
