@@ -3,396 +3,248 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nyondo Hardware Dashboard</title>
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Nyondo Hardware</title>
 
     <style>
+      /* Reset default browser styles */
+      *means /* Select everything on the page */
+* {
+        margin: 0; /* Removes all outer space around elements */
+        padding: 0; /* Removes all inner space inside elements */
+        box-sizing: border-box; /*it controls how width and height of the box are calculated.*/
+        font-family: Arial, sans-serif;
+      }
+
+      /* Body styling */
       body {
-        margin: 0;
-        font-family: "Times New Roman", Times, serif;
-        background: rgb(208, 202, 202);
+        background: #f4f6f9; /* Light background */
+        color: #333; /* Dark text */
       }
 
-      /* top title bar */
-      .header {
-        background: rgb(75, 112, 125);
-        color: white; /* text color inside header */
-        padding: 20px; /* space inside header (top, right, bottom, left) */
+      /* Header section */
+      header {
+        background: #1e2a38; /* Dark blue */
+        color: white;
+        padding: 15px 30px;
+        display: flex; /* Flexbox layout */
+        justify-content: space-between; /* Space between logo and nav */
+        align-items: center;
+      }
+
+      /* Header title */
+      header h1 {
+        font-size: 30px;
+      }
+
+      /* Navigation links */
+      nav a {
+        color: white;
+        text-decoration: none; /* Remove underline */
+        margin-left: 20px;
+        font-size: 20px;
+      }
+
+      /* Hero section (top banner) */
+      .her {
+        height: 80vh; /* 80% of screen height */
+        background: rgb(75, 112, 125); /* Background color */
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        padding: 20px;
+      }
+
+      /* Hero heading */
+      .her h2 {
         font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      /* Hero paragraph */
+      .her p {
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+
+      /* Button styling */
+      .btn {
+        padding: 14px 25px;
+        background: #ff9800; /* Orange button */
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 20px;
+        transition: 0.3s; /* Smooth hover effect */
+      }
+
+      /* Button hover effect */
+      .btn:hover {
+        background: #e68900; /* Darker orange */
+      }
+
+      /* Services section */
+      .services {
+        padding: 60px 20px;
         text-align: center;
       }
 
-      /* sidebar and main content*/
-      .container {
-        display: grid; /* enables grid layout system */
-        grid-template-columns: 240px 1fr;
-        /* first column = 230px (sidebar), second = remaining space (main content) */
+      /* Services title */
+      .services h2 {
+        margin-bottom: 30px;
+        font-size: 28px;
       }
 
-      /* Sidebar*/
-      .sidebar {
+      /* Container for service boxes */
+      .service-boxes {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Allows wrapping on small screens */
+      }
+
+      /* Individual service box */
+      .box {
         background: rgb(75, 112, 125);
-        color: white; /* text color inside sidebar */
-        height: 110%; /* makes sidebar taller than screen */
-        font-size: 18px; /*makes the text size big */
+        padding: 25px;
+        margin: 15px;
+        border-radius: 10px;
+        width: 300px;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
-      /* Side bar links */
-      .sidebar a {
-        display: block; /* makes links stack vertically */
-        padding: 17px; /* space inside each link */
-        color: white; /* link text color */
-        text-decoration: none; /* removes underline */
-        font-size: 18px; /* makes text to be big for someone to read it clearly */
+      /* Service box title */
+      .box h3 {
+        margin-bottom: 10px;
       }
 
-      /* Sidebar hover effect */
-      .sidebar a:hover {
-        background: #1d293c; /* changes background when hovering */
-        padding: 10px; /*gives click feel when hovering*/
-      }
-
-      /* Main content */
-      .main {
-        padding: 20px; /* makes the main content not be fixed(to have space) */
-      }
-
-      .cards {
-        display: grid; /* makes the cards to be horinzontally aligned */
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        /* auto creates columns depending on screen size */
-        gap: 20px; /* space between cards */
-      }
-
-      /* Card box */
-      .card {
-        background: white; /* card background color */
-        padding: 18px; /* space inside card */
-        border-radius: 13px; /* makes the corners to be curved */
-      }
-
-      /* Card hover effect */
-      .card:hover {
-        background: lightblue; /* changes color on hover when tapping */
-        cursor: pointer;
-        transform: translateY(-6px);
-        /* moves card slightly up*/
-      }
-
-      /* Card title */
-      .card h3 {
-        margin: 0; /* removes the space that the browser automatically gives elements*/
-        color: #272020; /*gives the heading a color */
-        font-size: 23px;
-      }
-
-      /* Card paragraph */
-      .card p {
-        font-size: 19px; /* makes number readable */
-        font-weight: bold; /* makes text thick */
-        margin-top: 16px; /* space above text */
-      }
-
-      table {
-        width: 100%; /* full width table */
-        border-collapse: collapse; /* removes gaps between borders */
-        background: white;
-        border-radius: 14px; /*makes the corners curved */
-        font-size: 18px;
-        margin-top: 20px; /* space above table */
-      }
-
-      /* Table heading */
-      th {
-        background: #1f4e5f;
-        color: white; /* changes the color of the text */
-        text-align: left; /* aligns text left making them organised */
-        padding: 14px; /* space inside cells */
-        font-size: 18px;
-      }
-
-      /* Table cells */
-      td {
-        padding: 14px; /* space inside each cell */
-        border-bottom: 1px solid rgb(240, 228, 228); /* light line between rows */
-      }
-
-      /* Table row hover */
-      tr:hover {
-        background: #ddeaf1; /* highlight row on hover */
-      }
-
-      /* Low stock text */
-      .low {
-        color: rgb(111, 190, 217); /* color for warning */
-        font-weight: bold; /* makes text bold */
-      }
-
-      /* In stock text */
-      .stock {
-        color: rgb(72, 245, 72); /* green color for success */
-        font-weight: bold; /* bold text */
-      }
-
-      .logo {
-        width: 100%; /* fills container width */
-        max-width: 200px; /* prevents it from becoming too big */
-        display: block; /* makes it behave like a block element */
-        margin: 0 auto; /* centers logo horizontally */
-      }
-
-      /* /* Logo box insidet the sidebar */
-      .sidebar .card.logo {
-        text-align: center; /* centers content */
-        background: transparent; /* removes background box */
-        box-shadow: none; /*removes shadow*/
-      }
-
-      /* MOBILE RESPONSIVENESS ONLY */
-      /* making the css that can make my form appear on mobile phones */
-      @media (max-width: 760px) {
-        /* Stack sidebar and content */
-        .container {
-          grid-template-columns: 1fr;
-        }
-
-        /* Smaller header */
-        .header {
-          font-size: 24px;
-          padding: 20px;
-        }
-
-        /* Sidebar adjustment */
-        .sidebar {
-          height: auto;
-          text-align: center;
-        }
-
-        /* Sidebar links */
-        .sidebar a {
-          padding: 12px;
-          font-size: 16px;
-        }
-
-        /* Cards stack */
-        .cards {
-          grid-template-columns: 1fr;
-        }
-
-        /* Reduce text size */
-        .card h3 {
-          font-size: 18px;
-        }
-
-        .card p {
-          font-size: 16px;
-        }
-
-        /* Make tables scrollable */
-        table {
-          display: block;
-          overflow-x: auto;
-          white-space: nowrap;
-          font-size: 14px;
-        }
-
-        th,
-        td {
-          padding: 10px;
-        }
-
-        /* Reduce spacing */
-        .main {
-          padding: 10px;
-        }
-
-        /* Smaller logo */
-        .logo {
-          max-width: 120px;
-        }
-      }
-
-      footer {
-        color: rgb(20, 10, 10);
+      /* About section */
+      .about {
+        padding: 60px 20px;
+        background: #ffffff;
         text-align: center;
-        padding: 17px; /* space inside footer */
-        margin-top: 8px; /* space above footer */
-        margin-bottom: 20px; /* space below footer */
+        font-size: 30px;
+      }
+
+      /* About title */
+      .about h2 {
+        margin-bottom: 20px;
+      }
+
+      /* About text */
+      .about p {
+        max-width: 700px; /* Limits width */
+        margin: auto; /* Center text */
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* Contact section */
+      .contact {
+        padding: 60px 20px;
+        text-align: center;
         font-size: 17px;
+      }
+
+      /* Contact title */
+      .contact h2 {
+        margin-bottom: 20px;
+      }
+
+      /* Footer */
+      footer {
+        background: #1e2a38;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Responsive design for mobile */
+      @media (max-width: 768px) {
+        /* Reduce hero title size */
+        .her h2 {
+          font-size: 26px;
+        }
+
+        /* Reduce paragraph size */
+        .her p {
+          font-size: 16px;
+        }
+
+        /* Hide navigation on small screens */
+        nav {
+          display: none;
+        }
+
+        /* Make boxes take full width */
+        .box {
+          width: 90%;
+        }
       }
     </style>
   </head>
 
   <body>
-    <div class="header">Nyondo General Hardware Dashboard</div>
+    <header>
+      <h1>Nyondo Hardware</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="Sale.html">Services</a>
+        <a href="Deposit.html">About</a>
+      </nav>
+    </header>
 
-    <div class="container">
-      <div class="sidebar">
-        <div class="card logo">
-          <img src="images/logo22.png" alt="Logo" class="logo" />
+    <section class="her">
+      <h2>Your Trusted Hardware Partner</h2>
+      <p>
+        Quality building materials and tools for all your construction needs.
+      </p>
+      <a href="sign.html" class="btn">Get Started</a>
+    </section>
+
+    <section class="services">
+      <h2>Our Services</h2>
+      <div class="service-boxes">
+        <div class="box">
+          <h3>Building Materials</h3>
+          <p>Cement, Wood, Glass, iron sheets,ironbars and more.</p>
         </div>
-        <a href="index.html">🏠 Dashboard</a>
-        <a href="sign.html">➕ Log in</a>
-        <a href="Sale.html">💰 Add Sale</a>
-        <a href="Deposit.html">🏦 Customer Deposit</a>
-        <a href="stock.html">📦 Add Stock</a>
+
+        <div class="box">
+          <h3>Tools & Equipment</h3>
+          <p>High-quality tools for professionals and home use.</p>
+        </div>
+
+        <div class="box">
+          <h3>Expert Advice</h3>
+          <p>Get guidance from experienced professionals.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="main">
-        <div class="cards">
-          <div class="card">
-            <h3>Total Products</h3>
-            <p>670</p>
-          </div>
+    <section class="about">
+      <h2>About Us</h2>
+      <p>
+        Nyondo Hardware is committed to providing quality construction materials
+        and reliable service. We support builders, contractors, and homeowners
+        with everything they need to complete their projects successfully.
+      </p>
+    </section>
 
-          <div class="card">
-            <h3>Total Sales</h3>
-            <p>UGX 6,500,000</p>
-          </div>
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Nansana, Wakiso</p>
+      <p>📞 +256 740230081</p>
+      <p>info@nyondohardware.com</p>
+    </section>
 
-          <div class="card">
-            <h3>Low Stock Items</h3>
-            <p>15</p>
-          </div>
-
-          <div class="card">
-            <h3>Suppliers</h3>
-            <p>18</p>
-          </div>
-        </div>
-
-        <h2>Stock Overview</h2>
-        <table>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Status</th>
-            <th>Price</th>
-          </tr>
-
-          <tr>
-            <td>Cement</td>
-            <td>50</td>
-            <td class="stock">In Stock</td>
-            <td>UGX 55,000</td>
-          </tr>
-
-          <tr>
-            <td>Paint</td>
-            <td>13</td>
-            <td class="low">Low Stock</td>
-            <td>UGX 45,000</td>
-          </tr>
-
-          <tr>
-            <td>Nails</td>
-            <td>210</td>
-            <td class="stock">In Stock</td>
-            <td>UGX 100,000</td>
-          </tr>
-
-          <tr>
-            <td>Ironsheets</td>
-            <td>50</td>
-            <td class="low">Low Stock</td>
-            <td>UGX 50,000</td>
-          </tr>
-        </table>
-
-        <h2>Sales Overview</h2>
-
-        <div class="cards">
-          <div class="card">
-            <h3>Today's Sales</h3>
-            <p>UGX 1,000,000</p>
-          </div>
-
-          <div class="card">
-            <h3>This Week</h3>
-            <p>UGX 7,200,000</p>
-          </div>
-
-          <div class="card">
-            <h3>This Month</h3>
-            <p>UGX 15,500,000</p>
-          </div>
-
-          <div class="card">
-            <h3>Top Product</h3>
-            <p>Cement</p>
-          </div>
-        </div>
-
-        <table>
-          <tr>
-            <th>Date</th>
-            <th>Customer</th>
-            <th>Product</th>
-            <th>Amount</th>
-          </tr>
-
-          <tr>
-            <td>3-04-2026</td>
-            <td>Mbaleke Alphat</td>
-            <td>Cement</td>
-            <td>UGX 750,000</td>
-          </tr>
-
-          <tr>
-            <td>5-04-2026</td>
-            <td>Natukunda Alvin</td>
-            <td>Paint</td>
-            <td>UGX 500,000</td>
-          </tr>
-
-          <tr>
-            <td>10-04-2026</td>
-            <td>Nabukera Jamirah</td>
-            <td>Nails</td>
-            <td>UGX 200,000</td>
-          </tr>
-          <tr>
-            <td>12-04-2026</td>
-            <td>Nampiima Shamim</td>
-            <td>Pipes</td>
-            <td>UGX 250,000</td>
-          </tr>
-          <tr>
-            <td>14-04-2026</td>
-            <td>Kabuye Eric</td>
-            <td>Timber</td>
-            <td>UGX 500,000</td>
-          </tr>
-        </table>
-
-        <h3>Sales Trend</h3>
-        <canvas id="salesChart"></canvas>
-      </div>
-    </div>
-
-    <footer>&copy 2026 @Nyondo General Hardware Ltd All rights Copy right</footer>
-
-    <script>
-      const ctx = document.getElementById("salesChart");
-
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-          datasets: [
-            {
-              label: "Sales (UGX)",
-              data: [1000000, 800000, 600000, 900000, 1000000, 3000000],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-        },
-      });
-    </script>
+    <footer>
+      <p>&copy 2026 Nyondo Hardware. All rights reserved.</p>
+    </footer>
   </body>
 </html>
