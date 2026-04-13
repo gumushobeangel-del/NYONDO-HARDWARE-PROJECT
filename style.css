@@ -111,7 +111,19 @@ button {
 button:hover {
   background: #2468b1;
 }
-
+.btn {
+  margin-top: 19px;
+  padding: 9px;
+  width: 55%;
+  border-radius: 6px;
+  background: #363636;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none; /* removes underline from the link */
+}
 footer {
   color: rgb(20, 10, 10);
   text-align: center;
@@ -123,7 +135,7 @@ footer {
 
 /* 📱 MOBILE RESPONSIVE DESIGN */
 /* here am making the css that can make people see clearly on mobile phone */
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   body {
     padding: 10px;
     display: block;
@@ -174,4 +186,13 @@ footer {
   margin-top: 8px; /* space above footer */
   margin-bottom: 20px; /* space below footer */
   font-size: 17px;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  btn {
+    width: 90%; /* makes it fit small screens */
+    font-size: 16px; /* slightly smaller text */
+    padding: 12px; /* bigger touch area for fingers */
+    margin-top: 15px;
+  }
 }
