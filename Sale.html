@@ -45,16 +45,6 @@
         border-radius: 6px;
       }
 
-      .form-box button {
-        width: 90%;
-        padding: 10px; /*makes the button to be wide(not small) */
-        background: #363636;
-        color: white;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 15px;
-      }
-
       .form-box button:hover {
         background: #2468b1;
       }
@@ -88,6 +78,33 @@
       tr:hover {
         background: #ddeaf1;
       }
+
+      .form-box button {
+        width: 90%;
+        padding: 10px;
+        background: #363636;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        margin-bottom: 15px; /* adds space below button */
+      }
+
+      .btn {
+        display: inline-block; /*  for spacing */
+        margin-top: 10px; /* adds space above */
+        padding: 9px;
+        width: 55%;
+        border-radius: 6px;
+        background: #363636;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.5s;
+        text-decoration: none;
+      }
+
       /* MOBILE RESPONSIVENESS */
       /* this is the css that makes my form to be seen clearly on mobile phones */
       @media (max-width: 768px) {
@@ -158,6 +175,7 @@
           <input type="text" required />
 
           <button type="submit">Add Sale</button>
+          <a href="Deposit.html" class="btn">Deposit</a>
         </form>
       </div>
 
